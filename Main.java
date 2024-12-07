@@ -23,6 +23,16 @@ public class Main {
                 break;
             }
 
+            if (chatbot.periksaKataBingung(input)) {
+                System.out.println("Jika Anda bingung ingin mencoba memasak apa, ketik 'Food List'.");
+                continue;
+            }
+
+            if (input.equalsIgnoreCase("Food List")) {
+                System.out.println(chatbot.tampilkanKategori());
+                continue;
+            }
+
             String namaMakanan = chatbot.ekstrakNamaMakanan(input);
             if (namaMakanan != null) {
                 Resep hasil = chatbot.cariResep(namaMakanan);

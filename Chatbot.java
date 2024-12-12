@@ -53,9 +53,10 @@ public class Chatbot {
         if (resep == null) {
             return "Maaf, resep belum tersedia!";
         }
-
+    
         StringBuilder output = new StringBuilder();
         output.append("Resep: ").append(resep.getNama()).append("<br>");
+        output.append("Kategori: ").append(resep.kategori()).append("<br>");
         output.append("Bahan:<br>");
         for (String bahan : resep.getBahan()) {
             output.append("- ").append(bahan).append("<br>");
@@ -66,6 +67,7 @@ public class Chatbot {
         }
         return output.toString();
     }
+        
 
     public String tampilkanKategori() {
         StringBuilder output = new StringBuilder();

@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Resep {
     private String nama;
     private String[] bahan;
@@ -21,5 +19,9 @@ public class Resep {
 
     public String[] getLangkah() {
         return langkah;
+    }
+
+    public String kategori() {
+        return "Umum";
     }
 }

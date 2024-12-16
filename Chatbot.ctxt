@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Chatbot
+comment1.params=
+comment1.target=Chatbot()
+comment2.params=resep
+comment2.target=void\ tambahResep(Resep)
+comment3.params=input
+comment3.target=java.lang.String\ ekstrakNamaMakanan(java.lang.String)
+comment4.params=nama
+comment4.target=Resep\ cariResep(java.lang.String)
+comment5.params=input
+comment5.target=boolean\ periksaKataBingung(java.lang.String)
+comment6.params=input
+comment6.target=boolean\ periksaKataHello(java.lang.String)
+comment7.params=input
+comment7.target=boolean\ periksaKataPenutup(java.lang.String)
+comment8.params=resep
+comment8.target=java.lang.String\ tampilkanResep(Resep)
+comment9.params=
+comment9.target=java.lang.String\ tampilkanKategori()
+numComments=10

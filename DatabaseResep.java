@@ -243,6 +243,31 @@ public class DatabaseResep {
                 new String[] { "Campur tepung terigu dengan telur dan bumbu", "Tambahkan jagung pipil, aduk rata",
                         "Panaskan minyak, goreng adonan bakwan hingga kecokelatan", "Tiriskan dan sajikan" }));
 
+        daftarResep.add(new Snack(
+                "Keripik Singkong",
+                new String[] { "Singkong", "Minyak Goreng", "Garam" },
+                new String[] { "Kupas singkong", "Iris tipis", "Goreng hingga renyah", "Taburi dengan garam" }));
+
+        daftarResep.add(new Snack(
+                "Peyek Kacang",
+                new String[] { "Tepung Beras", "Kacang Tanah", "Santai", "Bawang Putih", "Garam" },
+                new String[] { "Campur tepung beras dengan santan dan bumbu", "Tambahkan kacang tanah", "Goreng hingga renyah" }));
+
+        daftarResep.add(new Snack(
+                "Roti Bakar",
+                new String[] { "Roti Tawar", "Mentega", "Selai", "Cokelat Meises", "Keju Parut" },
+                new String[] { "Panaskan mentega di wajan", "Bakar roti hingga kecokelatan", "Tambahkan selai atau topping sesuai selera" }));
+
+        daftarResep.add(new Snack(
+                "Kue Lumpur",
+                new String[] { "Tepung Terigu", "Susu", "Telur", "Kentang", "Gula" },
+                new String[] { "Campur bahan hingga halus", "Panaskan cetakan", "Tuang adonan ke cetakan", "Masak hingga matang" }));
+
+        daftarResep.add(new Snack(
+                "Cireng",
+                new String[] { "Tepung Tapioka", "Bawang Putih", "Garam", "Air Hangat", "Minyak Goreng" },
+                new String[] { "Campur tepung dengan bawang putih dan air", "Bentuk adonan", "Goreng hingga matang" }));
+
         return daftarResep;
     }
 }

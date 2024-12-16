@@ -8,7 +8,7 @@ public class MainGUI {
 
     public MainGUI() {
         chatbot = new Chatbot();
-        for(Resep resep : DatabaseResep.getDaftarResep()){
+        for (Resep resep : DatabaseResep.getDaftarResep()) {
             chatbot.tambahResep(resep);
         }
 
@@ -36,27 +36,30 @@ public class MainGUI {
         inputPanel.add(sendButton, BorderLayout.EAST);
         frame.add(inputPanel, BorderLayout.SOUTH);
 
-        sendButton.addActionListener(new ActionListener(){
+        sendButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 String input = inputField.getText();
-                inputField.setText(""); 
+                inputField.setText("");
 
                 addChatBubble(chatPanel, input, true);
 
-                if(input.equalsIgnoreCase("exit")){
+                if (input.equalsIgnoreCase("exit")) {
                     addChatBubble(chatPanel, "Terima kasih sudah menggunakan Chatty the Chef!", false);
-                    JOptionPane.showMessageDialog(frame, "Terima kasih sudah menggunakan Chatty the Chef!", "Keluar", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(frame, "Terima kasih sudah menggunakan Chatty the Chef!", "Keluar",
+                            JOptionPane.INFORMATION_MESSAGE);
                     System.exit(0);
-                } else if(chatbot.periksaKataHello(input)){
+                } else if (chatbot.periksaKataPenutup(input)) {
+                    addChatBubble(chatPanel, "Terima kasih sudah menggunakan Chatty the Chef!", false);
+                } else if (chatbot.periksaKataHello(input)) {
                     addChatBubble(chatPanel, "Selamat Datang di Chatty the Chef! Ada yang bisa saya bantu?", false);
-                }else if(chatbot.periksaKataBingung(input)){
+                } else if (chatbot.periksaKataBingung(input)) {
                     addChatBubble(chatPanel, "Jika Anda bingung ingin mencoba memasak apa, ketik 'Food List'.", false);
-                } else if(input.equalsIgnoreCase("Food List")){
+                } else if (input.equalsIgnoreCase("Food List")) {
                     addChatBubble(chatPanel, "Kategori makanan:\n" + chatbot.tampilkanKategori(), false);
                 } else {
                     String namaMakanan = chatbot.ekstrakNamaMakanan(input);
-                    if(namaMakanan != null){
+                    if (namaMakanan != null) {
                         Resep hasil = chatbot.cariResep(namaMakanan);
                         addChatBubble(chatPanel, chatbot.tampilkanResep(hasil), false);
                     } else {
@@ -73,15 +76,15 @@ public class MainGUI {
         frame.setVisible(true);
     }
 
-    private void addChatBubble(JPanel chatPanel, String message, boolean isUser){
+    private void addChatBubble(JPanel chatPanel, String message, boolean isUser) {
         JPanel bubblePanel = new JPanel();
         bubblePanel.setLayout(new BoxLayout(bubblePanel, BoxLayout.Y_AXIS));
-    
+
         JLabel messageLabel = new JLabel("<html><p>" + message + "</p></html>");
         messageLabel.setOpaque(true);
-        messageLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); 
+        messageLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         messageLabel.setBackground(isUser ? new Color(173, 216, 230) : new Color(240, 240, 240));
-    
+
         bubblePanel.setAlignmentX(isUser ? Component.LEFT_ALIGNMENT : Component.RIGHT_ALIGNMENT);
         bubblePanel.add(messageLabel);
 
@@ -90,7 +93,6 @@ public class MainGUI {
         chatPanel.revalidate();
         chatPanel.repaint();
     }
-    
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new MainGUI());

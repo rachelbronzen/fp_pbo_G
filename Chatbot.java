@@ -30,7 +30,7 @@ public class Chatbot {
     }
 
     public boolean periksaKataBingung(String input) {
-        String[] kataBingung = { "bingung", "tidak tahu", "rekomendasi", "rekomendasikan" };
+        String[] kataBingung = { "bingung", "tidak tahu", "rekomendasi", "rekomendasikan", "ok" };
         for (String kata : kataBingung) {
             if (input.toLowerCase().contains(kata)) {
                 return true;
@@ -40,8 +40,19 @@ public class Chatbot {
     }
 
     public boolean periksaKataHello(String input) {
-        String[] kataHello = { "halo", "hai", "hi", "hello", "selamat pagi", "selamat siang", "selamat sore", "selamat malam" };
+        String[] kataHello = { "halo", "hai", "hi", "hello", "selamat pagi", "selamat siang", "selamat sore",
+                "selamat malam", "test" };
         for (String kata : kataHello) {
+            if (input.toLowerCase().contains(kata)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean periksaKataPenutup(String input) {
+        String[] kataPenutup = { "terima kasih", "selesai", "keluar", "exit", "thank", "done", "bye", "kasih" };
+        for (String kata : kataPenutup) {
             if (input.toLowerCase().contains(kata)) {
                 return true;
             }
@@ -53,7 +64,7 @@ public class Chatbot {
         if (resep == null) {
             return "Maaf, resep belum tersedia!";
         }
-    
+
         StringBuilder output = new StringBuilder();
         output.append("Resep: ").append(resep.getNama()).append("<br>");
         output.append("Kategori: ").append(resep.kategori()).append("<br>");
@@ -67,19 +78,18 @@ public class Chatbot {
         }
         return output.toString();
     }
-        
 
     public String tampilkanKategori() {
         StringBuilder output = new StringBuilder();
         output.append("Berikut daftar makanan yang kami rekomendasikan:<br>");
-        output.append("<br>Makanan Rumahan:<br>");
+        output.append("<br>Makanan Utama:<br>");
         output.append("- Nasi Goreng<br>- Soto Ayam<br>- Mie Goreng<br>- Capcay<br>- Sayur Asem<br>");
 
-        output.append("<br>Aneka Kue:<br>");
-        output.append("- Pancake<br>- Donat<br>- Brownies<br>- Kue Cubit<br>- Martabak Manis<br>");
+        output.append("<br>Makanan Penutup:<br>");
+        output.append("- Pancake<br>- Donat<br>- Brownies<br>- Es Teler<br>- Martabak Manis<br>");
 
-        output.append("<br>Makanan Tradisional:<br>");
-        output.append("- Rendang<br>- Gado-Gado<br>- Pempek<br>- Gudeg<br>- Klepon<br>");
+        output.append("<br>Makanan Ringan:<br>");
+        output.append("- Risoles<br>- Pastel<br>- Cireng<br>- Pisang Goreng<br>- Roti Bakar<br>");
 
         return output.toString();
     }
